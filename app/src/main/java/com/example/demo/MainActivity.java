@@ -3,6 +3,7 @@ package com.example.demo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 
@@ -26,14 +27,25 @@ public class MainActivity extends AppCompatActivity {
     private void initViews() {
         recyclerView = findViewById(R.id.recycle_view);
         demoAdapter = new DemoAdapter(list);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
+
+        // For Linear Layout
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        //recyclerView.setLayoutManager(layoutManager);
+
+        // For Grid Layout
+        //GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        //recyclerView.setLayoutManager(gridLayoutManager);
+
+        // For StaggeredGrid Layout
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(demoAdapter);
-        prepareData();
+
     }
 
-    private void prepareData() {
+        private void prepareData() {
         Country india = new Country("INDIA", R.drawable.in);
         list.add(india);
         Country pak = new Country("PAKISTAN", R.drawable.pk);
