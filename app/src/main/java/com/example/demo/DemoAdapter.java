@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,14 +44,20 @@ public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.DemoViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull final DemoViewHolder holder, final int position) {
+        System.out.println("Called......");
         holder.textView.setText(countryItems.get(position).getTitle());
         holder.imageView.setImageResource(countryItems.get(position).getFlag());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), HomeActivity.class);
+                intent.putExtra("name", countryItems.get(position));
+                holder.itemView.getContext().startActivity(intent);
                 Toast.makeText(holder.itemView.getContext(), countryItems.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 
     @Override
