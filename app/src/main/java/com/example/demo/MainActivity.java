@@ -29,23 +29,23 @@ public class MainActivity extends AppCompatActivity {
         demoAdapter = new DemoAdapter(list);
 
         // For Linear Layout
-        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        //recyclerView.setLayoutManager(layoutManager);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true);
+        recyclerView.setLayoutManager(layoutManager);
 
         // For Grid Layout
         //GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         //recyclerView.setLayoutManager(gridLayoutManager);
 
         // For StaggeredGrid Layout
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        //StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        //recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(demoAdapter);
-
+        prepareData();
     }
 
-        private void prepareData() {
+    private void prepareData() {
         Country india = new Country("INDIA", R.drawable.in);
         list.add(india);
         Country pak = new Country("PAKISTAN", R.drawable.pk);
