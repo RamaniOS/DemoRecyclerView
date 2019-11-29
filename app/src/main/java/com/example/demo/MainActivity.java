@@ -31,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
         demoAdapter = new DemoAdapter(list);
 
         // For Linear Layout
-        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true);
-        //recyclerView.setLayoutManager(layoutManager);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
 
         // For Grid Layout
         //GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         //recyclerView.setLayoutManager(gridLayoutManager);
 
         // For StaggeredGrid Layout
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        //StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        //recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(demoAdapter);
